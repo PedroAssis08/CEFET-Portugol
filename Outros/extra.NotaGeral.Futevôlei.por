@@ -9,7 +9,7 @@ programa {
 
 
     real peso, pulo, formula1, nota1, resultado1, tempo, formula2, resultado2, metros, formula3, resultado3, nota4, resultado4, nota2, nota3
-    inteiro recepcao, levantamento, ataque, saque, formula4, mediaFinal
+    inteiro recepcao, levantamento, ataque, saque, mediaFinal
     cadeia atleta, categoria1, categoria2, categoria3, categoria4, tier
 
     escreva("NOTA  =  TIER\n")
@@ -49,22 +49,18 @@ programa {
       categoria1="Iniciante / Bronze"
     }senao{
       nota1 = 35
-      categoria1="Iniciante Baixo"
+      categoria1="Ta mal Arão"
     }
+
     resultado1 = nota1 * 0.35
-    escreva("Resultado do 1° TESTE:\nCategoria 1 = ",categoria1,"\n(",nota1,"/100)\n")
+
     escreva("-----------------------------------------------------------------------------------------------------------------\n")
     escreva("Agora vamos para o 2° TESTE\n")
     escreva("Shutle Run)\n -> Ir e voltar de uma linha a outra tocando a mão na linha, 2 vezes.")
     escreva("\nEm quantos segundos você termina o Shutle Run?\nR:")
     leia(tempo)
+
     formula2 = 100 - (((tempo - 9.5) / 5.0) * 100)
-
-
-    
-
-
-
 
     se(formula2>=100){
       categoria2 = "Elite / Profissional"
@@ -82,19 +78,18 @@ programa {
       categoria2 = "Iniciante"
       nota2 = 30
     }senao se(formula2>=15){
-      categoria2 = "Iniciante Baixo"
+      categoria2 = "Ta mal Arão"
       nota2 = 15
     }senao se(tempo>=14.5){
       nota2 = 1
     }
     resultado2 = nota2 * 0.25
 
-    escreva("Resultado do 2° TESTE:\nCategoria 2 = ",categoria2,"\n(",nota2,"/100)\n")
     escreva("-----------------------------------------------------------------------------------------------------------------\n")
 
     escreva("Agora vamos para o 3° TESTE\n")
-    escreva("Yo-Yo Test)\n -> O atleta corre 20 metros (ida e volta, totalizando 40m) no ritmo de um sinal sonoro (bip).\nApós cada ida e volta, ele tem 10 segundos de descanso ativo (caminhando).\nO teste é dividido em Estágios/Níveis. Conforme o tempo passa, os (bips) ficam mais rápidos.\nO teste termina quando o atleta não consegue mais acompanhar o ritmo do (bip) por duas vezes seguidas.\n O resultado final é o último nível concluído ou a distância total percorrida em metros.")
-    escreva("\nQuantos metros você termina o Yo-Yo Test?\nR: ")
+    escreva("Yo-Yo Test)\n -> O atleta corre 20 metros (ida e volta, totalizando 40m) no ritmo de um sinal sonoro (bip).\nApós cada ida e volta, ele tem 10 segundos de descanso ativo (caminhando).\nO teste é dividido em Estágios/Níveis. Conforme o tempo passa, os (bips) ficam mais rápidos.\nO teste termina quando o atleta não consegue mais acompanhar o ritmo do (bip) por duas vezes seguidas.\nO resultado final é o último nível concluído ou a distância total percorrida em metros.")
+    escreva("\nQuantos metros você percorreu ao todo no Yo-Yo Test?\nR: ")
     leia(metros)
 
     formula3 = (((metros - 400) /1600)*100)
@@ -136,14 +131,9 @@ programa {
 
     resultado3 = nota3 * 0.20
 
-    escreva("Resultado do 3° TESTE:\nCategoria 3 = ",categoria3,"\n(",nota3,"/100)\n")
     escreva("-----------------------------------------------------------------------------------------------------------------\n")
 
-
-
-
-
-    escreva("Agora vamos para o 4°TESTE\n")
+    escreva("Agora vamos para o 4° TESTE\n")
     escreva("Teste Técnico(100 Toques)\n -> Avalia a precisão do atleta sob fadiga realizando 25 repetições de cada um dos 4 fundamentos essenciais\n")
     escreva("No Teste Técnico(100 Toques) quantos acertos você teve de 25\nNas recepções de saque?\nR:")
     leia(recepcao)
@@ -154,7 +144,7 @@ programa {
     escreva("Nos saques?\nR:")
     leia(saque)
 
-    formula4 = recepcao + levantamento + ataque + saque
+    resultado4 = recepcao + levantamento + ataque + saque
 
     se(resultado4>=95){
       categoria4 = "Elite / Profissional"
@@ -172,16 +162,13 @@ programa {
       categoria4 = "Iniciante (Bronze)"
       nota4 = 45
     }senao se(resultado4<35){
-      categoria4 = "Iniciante Inicial"
+      categoria4 = "Ta mal Arão"
       nota4 = 20
     }
 
-    escreva("Resultado do 4° TESTE:\nCategoria 4 = ",categoria4,"\n(",formula4,"/100)\n")
 
     resultado4 = nota4 * 0.20
     mediaFinal = resultado1 + resultado2 + resultado3 + resultado4
-    
-    escreva(mediaFinal)
 
     se(mediaFinal>90){
       tier = "S"
@@ -193,12 +180,16 @@ programa {
       tier = "C"
     }senao se(mediaFinal>10){
       tier = "D"
-    }senao{
+    }senao se(mediaFinal<=9){
       tier = "F"
     }
-
    escreva("-----------------------------------------------------------------------------------------------------------------\n")
-   escreva("O resultado final do atleta ", atleta ," é: \n Nota Geral = ", mediaFinal ," e Tier Rank = ", tier)
+   escreva("Resultado do 1° TESTE:\nCategoria 1 = ",categoria1,"\n(",nota1,"/100)\n\n")
+   escreva("Resultado do 2° TESTE:\nCategoria 2 = ",categoria2,"\n(",nota2,"/100)\n\n")
+   escreva("Resultado do 3° TESTE:\nCategoria 3 = ",categoria3,"\n(",nota3,"/100)\n\n")
+   escreva("Resultado do 4° TESTE:\nCategoria 4 = ",categoria4,"\n(",nota4,"/100)\n\n")
+   escreva("-----------------------------------------------------------------------------------------------------------------\n")
+   escreva("O resultado final do atleta\n ", atleta ," é: \n Nota Geral = ", mediaFinal ," e Tier Rank = ", tier)
   
   }
 }
